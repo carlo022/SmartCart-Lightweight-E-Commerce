@@ -77,7 +77,8 @@ a {
     box-shadow: none !important; }
 
 .site-section {
-  padding: 2.5em 0; }
+  padding: 2.5em 0; 
+}
   @media (min-width: 768px) {
     .site-section {
       padding: 5em 0; } }
@@ -165,7 +166,7 @@ a {
   position: relative;
   top: 0;
   width: 100%;
-  background: #fff; }
+  background: #02ff20c1; }
   .site-navbar.position-relative {
     position: relative;
     background: #f9f9f9 !important; }
@@ -667,12 +668,26 @@ a {
     font-size: 20px;
     line-height: 1;
     color: #51eaea; }
-  .block-5 ul li.address:before {
-    content: "\e8b4"; }
-  .block-5 ul li.email:before {
-    content: "\f0e0"; }
-  .block-5 ul li.phone:before {
-    content: "\f095"; }
+.block-5 ul li:before {
+    font-family: 'Font Awesome 6 Free'; /* Or 'Font Awesome 5 Free' */
+    font-weight: 900;                   /* CRITICAL: Without this, icons won't show */
+    display: inline-block;
+    margin-right: 10px;
+    color: #4CAF50; /* Optional: Adjust the icon color */
+}
+
+/* Your specific codes */
+.block-5 ul li.address:before {
+    content: "\f3c5"; /* Replaced your code with the standard Map Marker icon code */
+}
+
+.block-5 ul li.email:before {
+    content: "\f0e0"; 
+}
+
+.block-5 ul li.phone:before {
+    content: "\f095"; 
+}
 
 .block-6 {
   display: block; }
@@ -1275,9 +1290,9 @@ a {
 
 
 .form-container .row {
-  display: -ms-flexbox;  IE10
+  display: -ms-flexbox; /* IE10 */
   display: flex;
-  -ms-flex-wrap: wrap; IE10 
+  -ms-flex-wrap: wrap; /* IE10 */
   flex-wrap: wrap;
   margin: 0 -16px;
 }
@@ -1323,65 +1338,84 @@ a {
 }
 
 
-/* testimonial styling starts here */
- .testimonial-section {
-        max-width: 100%;
-        margin: auto;
-        padding: 40px 25px;
-        text-align: center;
-    }
+/* Testimonial styling optimized */
+.testimonial-section {
+    max-width: 800px; /* Nilimitahan para mas madaling basahin */
+    margin: auto;
+    padding: 40px 25px;
+    text-align: center;
+}
 
-    .testimonial-section h2 {
-        font-size: 2rem;
-        margin-bottom: 20px;
-    }
+.testimonial-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
 
-    .testimonial_slider {
-        position: relative;
-        overflow: hidden;
-    }
+.testimonial_slider {
+    position: relative;
+    overflow: hidden;
+    padding: 0 40px; /* Naglaan ng space para sa buttons */
+}
 
-    .testimonial-container {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      position: relative; /* track sits below buttons */
-      z-index: 1;
+/* Pag-aayos sa positioning ng buttons */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #4CAF50; /* Green color para sa Villa Care theme */
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s;
+}
 
-    }
+.nav-btn:hover { background: #3e8e41; }
+.nav-btn.prev { left: 0; }
+.nav-btn.next { right: 0; }
 
-    .testimonial {
-        flex: 0 0 100%;
-        box-sizing: border-box;
-        padding: 20px;
-        background: white;
-        margin: 10 10px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
+.testimonial-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
 
-    .avatar {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        margin-bottom: 10px;
-    }
+.testimonial {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    background: white;
+    margin: 10px; /* Inayos: Dati ay '10 10px' na invalid syntax */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
 
-    .testimonial_name {
-        font-weight: bold;
-        font-size: 1.1rem;
-    }
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover; /* Para hindi ma-stretch ang images */
+}
 
-    .location {
-        color: gray;
-        font-size: 0.9rem;
-        margin-bottom: 10px;
-    }
+.testimonial_name {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
 
-    .text_slider {
-        font-size: 0.95rem;
-        line-height: 1.5;
-        color: #333;
-    }
+.location {
+    color: gray;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.text_slider {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #333;
+}
 
     /* Navigation buttons */
     .nav-btn {
@@ -1412,8 +1446,46 @@ a {
             flex: 0 0 50%;
         }
     }
+    
+.hero-overlay {
+    background: rgba(76, 175, 80, 0.4);
+    padding: 10px; /* Optional: adds breathing room around text */
+}
 
+/* Add these at the bottom of your CSS file */
+.banner-shipping { background-color: #dc3545; } /* Replaces your red background */
+.transparent-text { color: transparent; }
 
+@media (max-width: 767px) {
+    /* Reduce padding so content doesn't hit the screen edges */
+    .testimonial-section {
+        padding: 20px 10px;
+    }
 
+    /* Make the heading smaller */
+    .testimonial-section h2 {
+        font-size: 1.5rem;
+    }
 
+    /* Make the testimonials more compact */
+    .testimonial {
+        padding: 15px;
+        margin: 5px;
+    }
+
+    /* Shrink the avatar on mobile */
+    .avatar {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Adjust the text size for readability on small phones */
+    .text_slider {
+        font-size: 0.85rem;
+    }
+
+    /* Ensure banner text doesn't overflow */
+    .banner-wrap h5 {
+        font-size: 1.1rem;
+    }
 }
